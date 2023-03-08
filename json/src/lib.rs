@@ -762,12 +762,12 @@ pub struct ListUnspentQueryOptions {
 #[serde(rename_all = "camelCase")]
 pub struct ListUnspentResultEntry {
     pub txid: bitcoin::Txid,
-    pub vout: u32,
+    pub vout: Option<u32>,
     pub address: Option<Address>,
     pub label: Option<String>,
     pub redeem_script: Option<Script>,
     pub witness_script: Option<Script>,
-    pub script_pub_key: Script,
+    pub script_pub_key: Option<Script>,
     #[serde(with = "bitcoin::util::amount::serde::as_btc")]
     pub amount: Amount,
     pub confirmations: u32,
@@ -775,7 +775,7 @@ pub struct ListUnspentResultEntry {
     pub solvable: bool,
     #[serde(rename = "desc")]
     pub descriptor: Option<String>,
-    pub safe: bool,
+    pub safe: Option<bool>,
 }
 
 #[derive(Clone, PartialEq, Eq, Debug, Deserialize, Serialize)]
