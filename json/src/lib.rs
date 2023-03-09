@@ -873,6 +873,7 @@ pub struct Bip9SoftforkInfo {
 pub enum SoftforkType {
     Buried,
     Bip9,
+    Bip8,
 }
 
 /// Status of a softfork
